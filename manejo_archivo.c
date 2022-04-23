@@ -1,5 +1,13 @@
 #include "manejo_archivo.h"
 
+typedef struct {
+  int n_partida;
+  char *palabra_secreta;
+  char ganada[3];
+  float porcentaje_ganadas;
+} Partida;
+
+
 FILE* abrir_archivo(const char *nombre_archivo, char *modo) {
   FILE *archivo = fopen(nombre_archivo, modo);
   assert(archivo != NULL);
@@ -28,7 +36,7 @@ void liberar_array_bidimensional(char **palabras_validas, int cant_palabras){
   free(palabras_validas);
 }
 
-void mostrar_palabras(char **palabras, int cant_palabras) {
+void mostrar_palabras(char **palabras, int cant_palabras){
   for (int i = 0; i < cant_palabras; printf("%s\n", palabras[i++]));
 }
 
@@ -36,5 +44,5 @@ void guardar_historial(FILE *historial, Partida ultima_partida){
   fprintf("Numero de partida: %d", ultima_partida.n_partida);
   fprintf("Palabra Secreta: %s", ultima_partida.palabra_secreta);
   fprintf("Partida ganada: %s", ultima_partida.ganada);
-  fprintf("Porcentaje de partidas ganadas: %.2f", ultima_partida.porcentaje_ganadas);
+  fprintf("Porcentaje de partidas ganadas: %.2f%%", ultima_partida.porcentaje_ganadas);
 }
