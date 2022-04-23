@@ -39,13 +39,12 @@ void mostrar_palabras(char **palabras, int cant_palabras) {
   for (int i = 0; i < cant_palabras; printf("%s\n", palabras[i++]));
 }
 
-int palabra_no_repetida(char **palabras, int cant_palabras, char *palabra){
-  for(int h=0;h<cant_palabras;h++){
-    if(palabras[h]==palabra)
-      return 1;
-  }
-  return 0;
+int palabra_repetida(char **palabras, int cant_palabras, char *palabra){
+  int h = 0;
+  for(; h < cant_palabras && strcmp(palabras[h], palabra); h++);
+  return !strcmp(palabras[h], palabra);
 }
+
 
 char** elegir_palabra(const char *nombre_archivo){
   char **palabras_totales = malloc(sizeof(char) * CANT_MAX_PALABRAS);
