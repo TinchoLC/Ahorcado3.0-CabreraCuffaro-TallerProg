@@ -38,8 +38,21 @@ char** cinco_palabras(const char *nombre_archivo){
   return palabras_opcion;
 }
 
+char* elegir_palabra(const char **opciones){
+  int opcion;
+  printf("\n\nSi no le agrada ninguna palabra, la opcion 0 lo devuelve al menu")
+  printf("\nPalabras disponibles: \n1) %s\n2) %s\n3) %s\n4) %s\n5) %s", opciones[0], opciones[1], opciones[2], opciones[3], opciones[4]);
+  printf("\n\nIngrese una opcion: "); scanf("%d", &opcion);
 
-int menu(){
+  if(opcion>0 && opcion<6)
+    return opciones[opcion-1];
+  else{
+    return "ERROR";
+  }
+}
+
+int menu(const char *nombre_lemario, const char *nombre_historial){
+  char *palabra;
   int opcion;
   printf("Seleccione:\n1) Elegir una palabra\n2) Mostrar historial\n3) Salir\n\n");
   printf("Ingrese una opcion: "); scanf("%d", &opcion);
@@ -47,7 +60,15 @@ int menu(){
   switch (opcion) {
   
     case 1: // Elegir una palabra
-      juego( elegir_palabra( cinco_palabras() ) );
+      palabra = elegir_palabra( cinco_palabras(nombre_lemario) );
+        if ( strcmp(palabra,"ERROR") ){
+          int largo_palabra = strlen(palabra);
+          char *palabra_oculta = malloc(sizeof(char) * (largo_palabra + 1));
+          ocultar_palabra(palabra_oculta, largo_palabra);
+          jugar_ahorcado(palabra, palabra_oculta);
+        }
+        else
+          menu();
   break;
 
   case 2: // Mostrar el historial 
