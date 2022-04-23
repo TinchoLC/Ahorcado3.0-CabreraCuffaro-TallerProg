@@ -16,15 +16,15 @@ int main(int argc, char const *argv[]) {
   printf("%d - %d\n", numero_aleatorio, cant_palabras);
   // mostrar_palabras(palabras_validas, cant_palabras);
 
-  int largo_palabra_secreta = strlen(palabras_validas[numero_aleatorio]);
+  /*int largo_palabra_secreta = strlen(palabras_validas[numero_aleatorio]);
   char *palabra_secreta = malloc(sizeof(char) * (largo_palabra_secreta + 1));
-  strcpy(palabra_secreta, palabras_validas[numero_aleatorio]);
+  strcpy(palabra_secreta, palabras_validas[numero_aleatorio]);*
 
   /* char *tablero = malloc(sizeof(char) * (largo_palabra_secreta + 1));
   inicializar_tablero(tablero, largo_palabra_secreta); 
   jugar_ahorcado(palabra_secreta, tablero);  Se cambia todo por el menu */
   
-  free(palabra_secreta);
-  free(tablero);
+  // free(palabra_secreta);
+  // free(tablero);
   liberar_array_bidimensional(palabras_validas, cant_palabras);//liberar memoria de la palabra secreta y del tablero
 }

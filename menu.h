@@ -30,6 +30,11 @@ int palabra_repetida(char **palabras, int cant_palabras, char *palabra);
  */
 char** cinco_palabras(const char *nombre_archivo);
 
+/* 
+ * se ingresan 5 opciones y da a elegir una palabra
+ * devuelve la palabra que se elige
+ */
+char* elegir_palabra(const char *opciones);
 
 /* 
  * Se ingresa un número del 1 al 3. 
@@ -37,6 +42,6 @@ char** cinco_palabras(const char *nombre_archivo);
  * Si es 2 llama a mostrarHistorial(). 
  * Si es 3 finaliza la partida y guarda en el historial.
  */
-int menu();
+int menu(const char *nombre_lemario, const char *nombre_historial);
 #endif
 

@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "manejo_archivo.h"
 
 int generar_numero_aleatorio(int min, int max){
   srand(time(NULL));
@@ -24,7 +25,7 @@ char** cinco_palabras(const char *nombre_archivo){
   
   int indice_palabra_aleatoria;
   for (int i = 0; i < 5; i++) {
-    indice_palabra_aleatoria = numero_aleatorio(0, cant_palabras);
+    indice_palabra_aleatoria = generar_numero_aleatorio(0, cant_palabras);
 
     if (palabra_repetida(**palabras_opcion, i + 1, palabras_totales[indice_palabra_aleatoria])) {
       i--; // Como la palabra se repite, hace otra iteracion
