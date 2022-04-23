@@ -37,4 +37,10 @@ void liberar_array_bidimensional(char **palabras_validas, int cant_palabras);
  */
 void mostrar_palabras(char **palabras, int cant_palabras);
 
+/*
+ * guardar_historial toma el archivo objeto de historial y la 
+ * estructura de la ultima partida jugada y agrega cada caracteristica
+ * de esta al historial
+ */
+void guardar_historial(FILE *historial, Partida ultima_partida){
 #endif
