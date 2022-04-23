@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "manejo_archivo.h"
+#include "ahorcado.h"
 
 int generar_numero_aleatorio(int min, int max){
   srand(time(NULL));
@@ -27,7 +28,7 @@ char** cinco_palabras(const char *nombre_archivo){
   for (int i = 0; i < 5; i++) {
     indice_palabra_aleatoria = generar_numero_aleatorio(0, cant_palabras);
 
-    if (palabra_repetida(**palabras_opcion, i + 1, palabras_totales[indice_palabra_aleatoria])) {
+    if (palabra_repetida(palabras_opcion, i + 1, palabras_totales[indice_palabra_aleatoria])) {
       i--; // Como la palabra se repite, hace otra iteracion
     } else { // La palabra solamente se guarda si no es repetida
       int largo_palabra_aleatoria = strlen(palabras_totales[indice_palabra_aleatoria]);
@@ -35,18 +36,18 @@ char** cinco_palabras(const char *nombre_archivo){
       strcpy(palabras_opcion[i], palabras_totales[indice_palabra_aleatoria]);
     }
   }
-  liberar_palabras(palabras_totales, CANT_MAX_PALABRAS);
+  liberar_array_bidimensional(palabras_totales, CANT_MAX_PALABRAS);
   return palabras_opcion;
 }
 
-char* elegir_palabra(const char **opciones){
+char* elegir_palabra(char **opciones){
   int opcion;
-  printf("\n\nSi no le agrada ninguna palabra, la opcion 0 lo devuelve al menu")
+  printf("\n\nSi no le agrada ninguna palabra, la opcion 0 lo devuelve al menu");
   printf("\nPalabras disponibles: \n1) %s\n2) %s\n3) %s\n4) %s\n5) %s", opciones[0], opciones[1], opciones[2], opciones[3], opciones[4]);
   printf("\n\nIngrese una opcion: "); scanf("%d", &opcion);
 
   if(opcion>0 && opcion<6)
-    return opciones[opcion-1];
+    return *(opciones+opcion-1);
   else{
     return "ERROR";
   }
@@ -69,7 +70,7 @@ int menu(const char *nombre_lemario, const char *nombre_historial){
           jugar_ahorcado(palabra, palabra_oculta);
         }
         else
-          menu();
+          menu(nombre_lemario, nombre_historial);
   break;
 
   case 2: // Mostrar el historial 
@@ -84,6 +85,6 @@ int menu(const char *nombre_lemario, const char *nombre_historial){
   default: // Volver al menu
     // system(limpiar);
     printf("No ingreso una opcion valida, ingrese una:\n\n");
-    menu();
+    menu(nombre_lemario, nombre_historial);
     }
   }

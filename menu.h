@@ -34,7 +34,7 @@ char** cinco_palabras(const char *nombre_archivo);
  * se ingresan 5 opciones y da a elegir una palabra
  * devuelve la palabra que se elige
  */
-char* elegir_palabra(const char *opciones);
+char* elegir_palabra(char **opciones);
 
 /* 
  * Se ingresa un número del 1 al 3. 
