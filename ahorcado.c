@@ -1,8 +1,8 @@
 #include "ahorcado.h"
 
-void inicializar_tablero(char tablero[], int largo_palabra) {
-  for (int i = 0; i < largo_palabra; tablero[i++] = '-');
-  tablero[largo_palabra] = '\0';
+void ocultar_palabra(char palabra[], int largo_palabra) {
+  for (int i = 0; i < largo_palabra; palabra[i++] = '-');
+  palabra[largo_palabra] = '\0';
 }
 
 int ganadora(char tablero[], char palabra_secreta[]) {

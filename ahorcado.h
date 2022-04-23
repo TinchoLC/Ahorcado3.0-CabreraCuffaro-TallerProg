@@ -24,7 +24,7 @@ const int palabra_valida(int argc, char const *argv[]);
    * Toma un tablero y el largo de la palabra secreta *l* y devuelve
    * un array de *l* '-'
    */
-void inicializar_tablero(char tablero[], int largo_palabra);
+void ocultar_palabra(char palabra[], int largo_palabra);
 
   /*
    * Verifica si la palabra en el tablero coincide con

@@ -1,42 +1,10 @@
 #include "menu.h"
 
-FILE* abrir_archivo(const char *nombre_archivo, char *modo) {
-  FILE *archivo = fopen(nombre_archivo, modo);
-  assert(archivo != NULL);
-  
-  return archivo;
-}
-
-int leer_palabras(FILE *archivo_objeto, char **palabras_validas) {
-  char linea[LARGO_MAXIMO_LINEA]; // se usara de buffer
-
-  int cant_palabras = 0;
-  int largo_linea = 0;
-  for(int i = 0; EOF != fscanf(archivo_objeto, "%s\n", linea); i++) {
-    largo_linea = strlen(linea);
-    palabras_validas[i] = malloc(sizeof(char) * (largo_linea + 1));
-    strncpy(palabras_validas[i], linea, largo_linea);
-    palabras_validas[i][largo_linea] = '\0';
-    cant_palabras++;
-  }
-
-  return cant_palabras;
-}
-
 int generar_numero_aleatorio(int min, int max){
   srand(time(NULL));
 
   int tamano_intervalo = min - max + 1;
   return (rand() % tamano_intervalo) + min;
-}
-
-void liberar_array_bidimensional(char **palabras_validas, int cant_palabras){
-  for (int i = 0; i < cant_palabras; free(palabras_validas[i++]));
-  free(palabras_validas);
-}
-
-void mostrar_palabras(char **palabras, int cant_palabras) {
-  for (int i = 0; i < cant_palabras; printf("%s\n", palabras[i++]));
 }
 
 int palabra_repetida(char **palabras, int cant_palabras, char *palabra){
@@ -79,7 +47,7 @@ int menu(){
   switch (opcion) {
   
     case 1: // Elegir una palabra
-    // elegir_palabra();  /////////////////////////////////////////
+      juego( elegir_palabra( cinco_palabras() ) );
   break;
 
   case 2: // Mostrar el historial 

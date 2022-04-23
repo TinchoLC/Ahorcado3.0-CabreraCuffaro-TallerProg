@@ -3,7 +3,7 @@
 int main(int argc, char const *argv[]) {
 
   if (argc != 3) {
-    printf("Uso del ejecutable: %s <file>\n", argv[0]);
+    printf("Uso del ejecutable: %s <lemario> <historial>\n", argv[0]);
     return 1;
   }
 
@@ -20,8 +20,8 @@ int main(int argc, char const *argv[]) {
   char *palabra_secreta = malloc(sizeof(char) * (largo_palabra_secreta + 1));
   strcpy(palabra_secreta, palabras_validas[numero_aleatorio]);
 
-  char *tablero = malloc(sizeof(char) * (largo_palabra_secreta + 1));
-  inicializar_tablero(tablero, largo_palabra_secreta);
+  /* char *tablero = malloc(sizeof(char) * (largo_palabra_secreta + 1));
+  inicializar_tablero(tablero, largo_palabra_secreta); */
   
   jugar_ahorcado(palabra_secreta, tablero);
   

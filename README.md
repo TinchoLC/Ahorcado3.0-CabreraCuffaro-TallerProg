@@ -2,7 +2,7 @@
 
 ## Compilación
 
-gcc main.c menu.c ahorcado.c
+gcc main.c manejo_archivo.c menu.c ahorcado.c
 
 ## Queda como ejercicio
 
