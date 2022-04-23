@@ -46,7 +46,7 @@ int palabra_repetida(char **palabras, int cant_palabras, char *palabra){
 }
 
 
-char** elegir_palabra(const char *nombre_archivo){
+char** cinco_palabras(const char *nombre_archivo){
   char **palabras_totales = malloc(sizeof(char*) * CANT_MAX_PALABRAS);
   char **palabras_opcion = malloc(sizeof(char*) * 5);
 
