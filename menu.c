@@ -41,9 +41,9 @@ void mostrar_palabras(char **palabras, int cant_palabras) {
 
 int palabra_no_repetida(char **palabras, int cant_palabras, char *palabra){
   for(int h=0;h<cant_palabras;h++){
-    if(palabras[h]==palabra){
+    if(palabras[h]==palabra)
       return 1;
-    }
+  }
   return 0;
 }
 
