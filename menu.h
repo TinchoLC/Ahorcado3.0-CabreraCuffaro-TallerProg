@@ -56,7 +56,7 @@ int palabra_repetida(char **palabras, int cant_palabras, char *palabra);
  * un array bidimensional dinámico con 5 palabras aleatorias
  * que se encuentren dentro del mismo
  */
-char** elegir_palabra(const char *nombre_archivo);
+char** cinco_palabras(const char *nombre_archivo);
 
 
 /* 
