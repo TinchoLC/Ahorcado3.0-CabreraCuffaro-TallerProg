@@ -1,13 +1,5 @@
 #include "manejo_archivo.h"
 
-typedef struct {
-  int n_partida;
-  char *palabra_secreta;
-  char ganada[3];
-  float porcentaje_ganadas;
-} Partida;
-
-
 FILE* abrir_archivo(const char *nombre_archivo, char *modo) {
   FILE *archivo = fopen(nombre_archivo, modo);
   assert(archivo != NULL);
