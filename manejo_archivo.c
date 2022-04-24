@@ -32,9 +32,11 @@ void mostrar_palabras(char **palabras, int cant_palabras){
   for (int i = 0; i < cant_palabras; printf("%s\n", palabras[i++]));
 }
 
-void guardar_historial(FILE *historial, Partida ultima_partida){
-  fprintf("Numero de partida: %d", ultima_partida.n_partida);
-  fprintf("Palabra Secreta: %s", ultima_partida.palabra_secreta);
-  fprintf("Partida ganada: %s", ultima_partida.ganada);
-  fprintf("Porcentaje de partidas ganadas: %.2f%%", ultima_partida.porcentaje_ganadas);
+void guardar_historial(const char *historial, Partida ultima_partida){
+  FILE *hist = abrir_archivo(historial, "W+");
+  fprintf(hist, "Numero de partida: %d", ultima_partida.n_partida);
+  fprintf(hist, "Palabra Secreta: %s", ultima_partida.palabra_secreta);
+  fprintf(hist, "Partida ganada: %s", ultima_partida.ganada);
+  fprintf(hist, "Porcentaje de partidas ganadas: %.2f%%", ultima_partida.porcentaje_ganadas);
+  fclose(hist);
 }

@@ -54,5 +54,5 @@ typedef struct {
  * estructura de la ultima partida jugada y agrega cada caracteristica
  * de esta al historial
  */
-void guardar_historial(FILE *historial, Partida ultima_partida){
+void guardar_historial(const char *historial, Partida ultima_partida);
 #endif
