@@ -45,3 +45,31 @@ void copiar_desde(char* cadena1, char* cadena2, int posicion){
     for(; posicion < strlen(cadena2); *cadena1 = cadena2[posicion++], cadena1++);
     *cadena1 = '\0';
 }
+
+void mostrar_historial(const char *historial){
+  char **lineas, **n_partidas, **palabra_secreta, **ganada, **porcentaje_ganadas;
+  int pos_linea;
+  FILE *hist = abrir_archivo(historial, 'r');
+  int cant = leer_palabras(hist, lineas);
+  for (int a = 0; a < cant; a++, lineas++) {
+    pos_linea = a % 4;
+    switch (pos_linea):
+    
+    case 0:
+      copiar_desde(*n_partidas, *lineas, 19);
+      n_partidas++;
+      break;
+    case 1:
+      copiar_desde(*palabra_secreta, *lineas, 19);
+      palabra_secreta++;
+      break;
+    case 2:
+      copiar_desde(*ganada, *lineas, 19);
+      ganada++;
+      break;
+    case 3:
+      copiar_desde(*porcentaje_ganadas, *lineas, 19);
+      porcentaje_ganadas++;
+      break;
+  }
+}
