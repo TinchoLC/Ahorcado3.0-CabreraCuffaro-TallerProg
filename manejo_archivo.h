@@ -38,6 +38,18 @@ void liberar_array_bidimensional(char **palabras_validas, int cant_palabras);
 void mostrar_palabras(char **palabras, int cant_palabras);
 
 /*
+ * Crea una estructura con todas las caracteristicas de una partida:
+ * numero de partida, la palabra secreta, si se ganó o no y el porcentaje
+ * de partidas ganadas hasta el momento
+ */
+typedef struct {
+  int n_partida;
+  char *palabra_secreta;
+  char ganada[3];
+  float porcentaje_ganadas;
+} Partida;
+
+/*
  * guardar_historial toma el archivo objeto de historial y la 
  * estructura de la ultima partida jugada y agrega cada caracteristica
  * de esta al historial
