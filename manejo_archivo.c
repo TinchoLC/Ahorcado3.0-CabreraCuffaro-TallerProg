@@ -40,3 +40,8 @@ void guardar_historial(const char *historial, Partida ultima_partida){
   fprintf(hist, "Porcentaje de partidas ganadas: %.2f%%", ultima_partida.porcentaje_ganadas);
   fclose(hist);
 }
+
+void copiar_desde(char* cadena1, char* cadena2, int posicion){
+    for(; posicion < strlen(cadena2); *cadena1 = cadena2[posicion++], cadena1++);
+    *cadena1 = '\0';
+}
