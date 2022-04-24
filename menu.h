@@ -21,7 +21,7 @@ int generar_numero_aleatorio(int minimo, int maximo);
  * Revisa que la palabra no se encuentre en el array.
  * devuelve 0 si no se encuentra.
  */
-int palabra_repetida(char **palabras, int cant_palabras, char *palabra);
+int palabra_repetida(char **palabras, int contador, char *palabra);
 
 /* 
  * elegir_palabra toma un archivo con palabras y devuelve 

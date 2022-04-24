@@ -3,15 +3,16 @@
 #include "ahorcado.h"
 
 int generar_numero_aleatorio(int min, int max){
-  srand(time(NULL));
-
   int tamano_intervalo = min - max + 1;
   return (rand() % tamano_intervalo) + min;
 }
 
-int palabra_repetida(char **palabras, int cant_palabras, char *palabra){
+int palabra_repetida(char **palabras, int contador, char *palabra){
+  printf(" SE ESTA EJECUTANDO PALABRAAAAAAAA ");
   int h = 0;
-  for(; h < cant_palabras && strcmp(palabras[h], palabra); h++);
+  for(; h < contador && strcmp(palabras[h], palabra); printf("%dh", h), h++);
+    printf(" totobem ");
+    printf("%d", !strcmp(palabras[h], palabra));
   return !strcmp(palabras[h], palabra);
 }
 
@@ -24,19 +25,32 @@ char** cinco_palabras(const char *nombre_archivo){
   int cant_palabras = leer_palabras(archivo_objeto, palabras_totales);
   fclose(archivo_objeto);
   
-  int indice_palabra_aleatoria;
+  printf("\n\n\n\n\n\n\n\n\nbarra 1");
+
+  int indice_palabra_aleatoria, largo_palabra_aleatoria;
   for (int i = 0; i < 5; i++) {
     indice_palabra_aleatoria = generar_numero_aleatorio(0, cant_palabras);
-
-    if (palabra_repetida(palabras_opcion, i + 1, palabras_totales[indice_palabra_aleatoria])) {
+    printf("\n%d", i);
+    printf("barra 1.0.%d    ",i);
+    printf("%d", indice_palabra_aleatoria);
+    printf(" salchicha%dsalchicha ", palabra_repetida(palabras_opcion, i, palabras_totales[indice_palabra_aleatoria]) );
+    if ( palabra_repetida(palabras_opcion, i, palabras_totales[indice_palabra_aleatoria]) ) 
       i--; // Como la palabra se repite, hace otra iteracion
-    } else { // La palabra solamente se guarda si no es repetida
-      int largo_palabra_aleatoria = strlen(palabras_totales[indice_palabra_aleatoria]);
+    else { // La palabra solamente se guarda si no es repetida
+      printf("\n\n\n\n\n\n\n\n\n\n\n\n");
+      largo_palabra_aleatoria = strlen(palabras_totales[indice_palabra_aleatoria]);
       palabras_opcion[i] = malloc(sizeof(char) * (largo_palabra_aleatoria + 1));
       strcpy(palabras_opcion[i], palabras_totales[indice_palabra_aleatoria]);
+      printf("%s", palabras_opcion[i]);
+      printf("barra 1.1.%d    ",i);
     }
   }
+
+  printf("\n\n\n\n\n\n\n\n\nbarra 2");
+
   liberar_array_bidimensional(palabras_totales, CANT_MAX_PALABRAS);
+
+  printf("\n\n\n\n\n\n\n\n\nbarra 3");
   return palabras_opcion;
 }
 
@@ -58,7 +72,7 @@ int menu(const char *nombre_lemario, const char *nombre_historial){
   int opcion;
   printf("Seleccione:\n1) Elegir una palabra\n2) Mostrar historial\n3) Salir\n\n");
   printf("Ingrese una opcion: "); scanf("%d", &opcion);
-
+  srand(time(NULL));
   switch (opcion) {
   
     case 1: // Elegir una palabra
@@ -86,5 +100,5 @@ int menu(const char *nombre_lemario, const char *nombre_historial){
     // system(limpiar);
     printf("No ingreso una opcion valida, ingrese una:\n\n");
     menu(nombre_lemario, nombre_historial);
-    }
   }
+}
