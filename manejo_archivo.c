@@ -60,15 +60,15 @@ void mostrar_historial(const char *historial){
       n_partidas++;
       break;
     case 1:
-      copiar_desde(*palabra_secreta, *lineas, 19);
+      copiar_desde(*palabra_secreta, *lineas, 17);
       palabra_secreta++;
       break;
     case 2:
-      copiar_desde(*ganada, *lineas, 19);
+      copiar_desde(*ganada, *lineas, 16);
       ganada++;
       break;
     case 3:
-      copiar_desde(*porcentaje_ganadas, *lineas, 19);
+      copiar_desde(*porcentaje_ganadas, *lineas, 32);
       porcentaje_ganadas++;
       break;
   }
