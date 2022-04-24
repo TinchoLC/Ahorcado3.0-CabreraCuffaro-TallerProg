@@ -60,7 +60,7 @@ void jugar_ahorcado(char *palabra_secreta, char *tablero) {
   letras_jugadas[0] = '\0';
 
   while (vidas && !ganadora(tablero, palabra_secreta)) {
-    system(limpiar);
+    // system(limpiar);
     mostrar_tablero(tablero, letras_jugadas, vidas);
 
     letra = pedir_letra(letras_jugadas);
