@@ -44,7 +44,7 @@ void mostrar_historial(const char *historial){
   FILE *hist = abrir_archivo(historial, "r");
   int cant_lineas = leer_palabras(hist, lineas);
   
-  printf("+-------------------+-------------------------+--------+--------------------+\n"); //70 caracteres
+  printf("+-------------------+-------------------------+--------+--------------------+\n"); //80 caracteres?
   printf("| Numero de partida |     Palabra Secreta     | Ganada | Porcentaje Ganadas |\n");
   for(int a = 0; a < cant_lineas; printf("%s", *lineas), lineas++, a++);
   printf("+-------------------+-------------------------+--------+--------------------+\n");
