@@ -33,7 +33,7 @@ void mostrar_palabras(char **palabras, int cant_palabras){
 }
 
 void guardar_historial(const char *historial, Partida ult_part){
-  FILE *hist = abrir_archivo(historial, "W+");
+  FILE *hist = abrir_archivo(historial, "W");
   fprintf(hist, "+-------------------+-------------------------+--------+--------------------+\n");
   fprintf(hist, "| %17d | %23s |   %s   | %.2f%%              |\n", ult_part.n_partida, ult_part.palabra_secreta, ult_part.ganada, ult_part.porcentaje_ganadas);
   fclose(hist);
