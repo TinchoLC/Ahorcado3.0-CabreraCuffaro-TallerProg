@@ -1,6 +1,4 @@
-#include "menu.h"
-#include "manejo_archivo.h"
-#include "ahorcado.h"
+#include "main.h"
 
 int generar_numero_aleatorio(int min, int max){
   int tamano_intervalo = max - min + 1;
@@ -64,16 +62,16 @@ int menu(const char *nombre_lemario, const char *nombre_historial){
           ocultar_palabra(palabra_oculta, largo_palabra);
           jugar_ahorcado(palabra, palabra_oculta);
         }
-        else
-          menu(nombre_lemario, nombre_historial);
+        menu(nombre_lemario, nombre_historial);
   break;
 
   case 2: // Mostrar el historial 
-    // mostrarHistorial(); /////////////////////////////////////////
+    mostrar_historial(nombre_historial); /////////////////////////////////////////
+    menu(nombre_lemario, nombre_historial);
   break;
 
   case 3: // Finalizar y guardar en el historial
-    // guardarHistorial();
+    // guardar_historial(nombre_historial);
     return 0; // Si retorna 0 el main finaliza
   break;
 

@@ -57,6 +57,13 @@ typedef struct {
 void guardar_historial(const char *historial, Partida ultima_partida);
 
 /*
+ *
+ *
+ *  a explicar
+ */
+void mostrar_historial(const char *historial);
+
+/*
  * copiar_desde toma dos punteros a cadenas y un numero entero y asigna
  * la direccion al primer elemento de una cadena al elemento en la
  * posicion n de la otra cadena y consecutivamente hasta el terminador
