@@ -8,7 +8,7 @@
 #include <assert.h> // Verificar que el archivo se abra correctamente
 
 #define LARGO_MAXIMO_PALABRA 20
-#define LARGO_MAXIMO_LINEA 50
+#define LARGO_MAXIMO_LINEA 80
 #define CANT_MAX_PALABRAS 100000
 
 /*
