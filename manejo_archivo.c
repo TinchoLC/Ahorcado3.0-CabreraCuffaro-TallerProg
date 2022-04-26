@@ -40,7 +40,7 @@ void guardar_historial(const char *historial, Partida ult_part){
 
 void mostrar_historial(const char *historial){
   char **lineas;
-  FILE *hist = abrir_archivo(historial, 'r');
+  FILE *hist = abrir_archivo(historial, "r");
   int cant_lineas = leer_palabras(hist, lineas);
   
   printf("+-------------------+-----------------+--------+--------------------+\n"); //70 caracteres
