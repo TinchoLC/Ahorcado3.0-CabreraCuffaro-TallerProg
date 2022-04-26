@@ -34,7 +34,8 @@ void mostrar_palabras(char **palabras, int cant_palabras){
 
 void guardar_historial(const char *historial, Partida ult_part){
   FILE *hist = abrir_archivo(historial, "W+");
-  fprintf(hist, "| %d | %s | %s | %s | %.2f%% |", ult_part.n_partida, ult_part.palabra_secreta, ult_part.ganada, ult_part.porcentaje_ganadas);
+  fprintf(hist, "+-------------------+-------------------------+--------+--------------------+\n");
+  fprintf(hist, "| %17d | %23s |   %s   | %.2f%%              |\n", ult_part.n_partida, ult_part.palabra_secreta, ult_part.ganada, ult_part.porcentaje_ganadas);
   fclose(hist);
 }
 
@@ -43,8 +44,8 @@ void mostrar_historial(const char *historial){
   FILE *hist = abrir_archivo(historial, "r");
   int cant_lineas = leer_palabras(hist, lineas);
   
-  printf("+-------------------+-----------------+--------+--------------------+\n"); //70 caracteres
-  printf("| Numero de partida | Palabra Secreta | Ganada | Porcentaje Ganadas |\n");
+  printf("+-------------------+-------------------------+--------+--------------------+\n"); //70 caracteres
+  printf("| Numero de partida |     Palabra Secreta     | Ganada | Porcentaje Ganadas |\n");
   for(int a = 0; a < cant_lineas; printf("%s", *lineas), lineas++, a++);
-  printf("+-------------------+-----------------+--------+--------------------+\n");
+  printf("+-------------------+-------------------------+--------+--------------------+\n");
 }
