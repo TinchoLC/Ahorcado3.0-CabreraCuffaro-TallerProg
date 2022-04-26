@@ -32,44 +32,19 @@ void mostrar_palabras(char **palabras, int cant_palabras){
   for (int i = 0; i < cant_palabras; printf("%s\n", palabras[i++]));
 }
 
-void guardar_historial(const char *historial, Partida ultima_partida){
+void guardar_historial(const char *historial, Partida ult_part){
   FILE *hist = abrir_archivo(historial, "W+");
-  fprintf(hist, "Numero de partida: %d", ultima_partida.n_partida);
-  fprintf(hist, "Palabra Secreta: %s", ultima_partida.palabra_secreta);
-  fprintf(hist, "Partida ganada: %s", ultima_partida.ganada);
-  fprintf(hist, "Porcentaje de partidas ganadas: %.2f%%", ultima_partida.porcentaje_ganadas);
+  fprintf(hist, "| %d | %s | %s | %s | %.2f%% |", ult_part.n_partida, ult_part.palabra_secreta, ult_part.ganada, ult_part.porcentaje_ganadas);
   fclose(hist);
 }
 
-void copiar_desde(char* cadena1, char* cadena2, int posicion){
-    for(; posicion < strlen(cadena2); *cadena1 = cadena2[posicion++], cadena1++);
-    *cadena1 = '\0';
-}
-
 void mostrar_historial(const char *historial){
-  char **lineas, **n_partidas, **palabra_secreta, **ganada, **porcentaje_ganadas;
-  int pos_linea;
+  char **lineas;
   FILE *hist = abrir_archivo(historial, 'r');
-  int cant = leer_palabras(hist, lineas);
-  for (int a = 0; a < cant; a++, lineas++) {
-    pos_linea = a % 4;
-    switch (pos_linea):
-    
-    case 0:
-      copiar_desde(*n_partidas, *lineas, 19);
-      n_partidas++;
-      break;
-    case 1:
-      copiar_desde(*palabra_secreta, *lineas, 17);
-      palabra_secreta++;
-      break;
-    case 2:
-      copiar_desde(*ganada, *lineas, 16);
-      ganada++;
-      break;
-    case 3:
-      copiar_desde(*porcentaje_ganadas, *lineas, 32);
-      porcentaje_ganadas++;
-      break;
-  }
+  int cant_lineas = leer_palabras(hist, lineas);
+  
+  printf("+-------------------+-----------------+--------+--------------------+\n");
+  printf("| Numero de partida | Palabra Secreta | Ganada | Porcentaje Ganadas |\n");
+  for(int a = 0; a < cant_lineas; printf("%s", *lineas), lineas++, a++);
+  printf("+-------------------+-----------------+--------+--------------------+\n");
 }
