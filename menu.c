@@ -2,10 +2,10 @@
 
 int generar_numero_aleatorio(int min, int max){
   int tamano_intervalo = max - min + 1;
-  return (( rand() + rand() + rand()) % tamano_intervalo) + min;
+  return (rand() % tamano_intervalo) + min;
 }
 
-int palabra_repetida(char **palabras, int contador, char *palabra){
+int palabra_repetida(char **palabras, int contador, char *palabra){ // No funciona, maybe
   int h = 0;
   for(; h < contador && palabras[h] != palabra; h++ );
   return !(palabras[h] != palabra);
