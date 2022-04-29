@@ -51,15 +51,15 @@ typedef struct {
 } Partida;
 
 /*
- * guardar_historial toma el nombre de archivo del historial, la cantidad de partidas jugadas y la 
- * estructura de las partidas jugadas, abre el archivo
- * y agrega cada caracteristica de estas al historial
+ * guardar_historial toma el nombre de archivo del historial, 
+ * la cantidad de partidas jugadas y la estructura de las partidas jugadas. 
+ * Abre el archivo y agrega cada caracteristica de estas al historial
  */
 void guardar_historial(const char *historial, Partida* ult_part, int cant_partidas);
 
 /*
- * mostrar_historial toma el nombre del historial, lo abre, y muestra
- * su contenido
+ * mostrar_historial toma un puntero a la estructura Partida y un entero de la cantidad
+ * muestra todos los campos de Partida, solo utiliza printf()
  */
 void mostrar_historial(Partida* ult_part, int cant_partidas);
 

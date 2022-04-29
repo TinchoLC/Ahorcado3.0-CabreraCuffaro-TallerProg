@@ -63,4 +63,10 @@ void mostrar_tablero(char tablero[], char letras_jugadas[], int vidas);
    */
 int jugar_ahorcado(char *palabra_secreta, char *tablero);
 
+/*
+ * dibujo_ahorcado toma una cantidad de vidas e imprime en la consola 
+ * el dibujo correspondiente a las vidas
+ */
+void dibujo_ahorcado(int vidas);
+
 #endif

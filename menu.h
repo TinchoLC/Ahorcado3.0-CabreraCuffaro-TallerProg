@@ -37,11 +37,19 @@ char** cinco_palabras(const char *nombre_archivo);
 char* elegir_palabra(char **opciones);
 
 /* 
+ * se ingresa una palabra
+ * pregunta si el jugador esta seguro de la palabra (elegida con elegir_palabra)
+ * en caso de que no, devuelve "ERROR"
+ * en caso de que si, devuelve la misma palabra
+ */
+char* estar_seguro(char *palabra);
+
+/* 
  * Se ingresa un número del 1 al 3. 
  * Si es 1 llama a eleccionPalabra(). 
  * Si es 2 llama a mostrarHistorial(). 
  * Si es 3 finaliza la partida y guarda en el historial.
  */
-int menu(const char *nombre_lemario, const char *nombre_historial);
+void menu(const char *nombre_lemario, const char *nombre_historial);
 #endif
 

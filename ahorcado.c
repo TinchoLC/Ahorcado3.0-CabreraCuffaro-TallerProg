@@ -22,7 +22,7 @@ char pedir_letra(char letras_jugadas[]){
   printf("Ingrese una letra: ");
   scanf("%s", &letra);
 
-  while(letra_repetida(letra, letras_jugadas)) {
+  while (letra_repetida(letra, letras_jugadas)) {
     printf("Ingrese una letra que no haya ingresado antes: ");
     scanf("%s", &letra);
   }
@@ -32,6 +32,74 @@ char pedir_letra(char letras_jugadas[]){
   letras_jugadas[cant_letras_jugadas] = letra;
   letras_jugadas[cant_letras_jugadas + 1] = '\0';
   return letra;
+}
+
+void dibujo_ahorcado(int vidas){
+  switch(vidas){
+    case 7:
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+        break;
+    case 6:
+        printf("%c%c%c%c%c%c\n",218,196,196,196,196,196);
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+        break;
+    case 5:
+        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+        printf("%c    %c\n",179,179);
+        printf("%c    \n",179);
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+        break;
+    case 4:
+        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+        printf("%c    %c\n",179,179);
+        printf("%c    O\n",179);
+        printf("%c\n",179);
+        printf("%c\n",179);
+        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+        break;
+    case 3:
+        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+        printf("%c    %c\n",179,179);
+        printf("%c    O\n",179);
+        printf("%c   /%c\n",179,179);
+        printf("%c\n",179);
+        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+        break;
+    case 2:
+        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+        printf("%c    %c\n",179,179);
+        printf("%c    O\n",179);
+        printf("%c   /%c%c\n",179,179,92);
+        printf("%c\n",179);
+        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+        break;
+    case 1:
+        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+        printf("%c    %c\n",179,179);
+        printf("%c    O\n", 179);
+        printf("%c   /%c%c\n",179,179,92);
+        printf("%c   /\n",179);
+        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+        break;
+    case 0:
+        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+        printf("%c    %c\n",179,179);
+        printf("%c    O\n", 179);
+        printf("%c   /%c%c\n",179,179,92);
+        printf("%c   / %c\n",179,92);
+        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    }
 }
 
 int rellenar_palabra(char letra, char tablero[], char palabra_secreta[]) {
@@ -49,6 +117,7 @@ int rellenar_palabra(char letra, char tablero[], char palabra_secreta[]) {
 }
 
 void mostrar_tablero(char tablero[], char letras_jugadas[], int vidas) {
+  dibujo_ahorcado(vidas);
   printf("Cantidad de vidas restantes: %d\n", vidas);
   printf("Letras ingresadas: %s\n", letras_jugadas);
   printf("%s\n\n", tablero);
@@ -71,10 +140,11 @@ int jugar_ahorcado(char *palabra_secreta, char *tablero) {
   }
 
   if (vidas) {
+    dibujo_ahorcado(vidas);
     printf("Felicitaciones! Ganaste\n");
     return 1;
   }
-
+  dibujo_ahorcado(vidas);
   printf("Suerte la proxima! La palabra era %s\n", palabra_secreta);
   return 0;
 }
