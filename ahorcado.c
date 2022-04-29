@@ -54,7 +54,7 @@ void mostrar_tablero(char tablero[], char letras_jugadas[], int vidas) {
   printf("%s\n\n", tablero);
 }
 
-void jugar_ahorcado(char *palabra_secreta, char *tablero) {
+int jugar_ahorcado(char *palabra_secreta, char *tablero) {
   int vidas = VIDAS_INICIALES, encontrada = 0;
   char letra, letras_jugadas[LARGO_ABC];
   letras_jugadas[0] = '\0';
@@ -72,9 +72,9 @@ void jugar_ahorcado(char *palabra_secreta, char *tablero) {
 
   if (vidas) {
     printf("Felicitaciones! Ganaste\n");
-    return;
+    return 1;
   }
 
-  printf("Suerte la próxima! La palabra era %s\n", palabra_secreta);
-  return;
+  printf("Suerte la proxima! La palabra era %s\n", palabra_secreta);
+  return 0;
 }

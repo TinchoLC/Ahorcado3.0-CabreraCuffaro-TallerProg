@@ -58,8 +58,9 @@ void mostrar_tablero(char tablero[], char letras_jugadas[], int vidas);
 
   /*
    * jugar_ahorcado toma una palabra secreta y un tablero inicial
-   * y simula una partida de ahorcado completa
+   * y simula una partida de ahorcado completa.
+   * Retonar 1 si ganas y 0 si perdes.
    */
-void jugar_ahorcado(char *palabra_secreta, char *tablero);
+int jugar_ahorcado(char *palabra_secreta, char *tablero);
 
 #endif

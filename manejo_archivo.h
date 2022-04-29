@@ -10,6 +10,7 @@
 #define LARGO_MAXIMO_PALABRA 20
 #define LARGO_MAXIMO_LINEA 80
 #define CANT_MAX_PALABRAS 100000
+#define CANT_MAX_PARTIDAS 10
 
 /*
  * abrir_archivo toma la ruta de un archivo y el modo en el que
@@ -50,23 +51,16 @@ typedef struct {
 } Partida;
 
 /*
- * guardar_historial toma el archivo objeto de historial y la 
- * estructura de la ultima partida jugada y agrega cada caracteristica
- * de esta al historial
+ * guardar_historial toma el nombre de archivo del historial, la cantidad de partidas jugadas y la 
+ * estructura de las partidas jugadas, abre el archivo
+ * y agrega cada caracteristica de estas al historial
  */
-void guardar_historial(const char *historial, Partida ultima_partida);
+void guardar_historial(const char *historial, Partida* ult_part, int cant_partidas);
 
 /*
- *
- *
- *  a explicar
+ * mostrar_historial toma el nombre del historial, lo abre, y muestra
+ * su contenido
  */
-void mostrar_historial(const char *historial);
+void mostrar_historial(Partida* ult_part, int cant_partidas);
 
-/*
- * copiar_desde toma dos punteros a cadenas y un numero entero y asigna
- * la direccion al primer elemento de una cadena al elemento en la
- * posicion n de la otra cadena y consecutivamente hasta el terminador
- */
-void copiar_desde(char* cadena1, char* cadena2, int posicion);
 #endif

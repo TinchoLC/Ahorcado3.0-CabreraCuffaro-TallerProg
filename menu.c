@@ -47,37 +47,69 @@ char* elegir_palabra(char **opciones){
     return "ERROR";
 }
 
+char* estar_seguro(char *palabra){
+  printf("\nEstas seguro de que quieres seleccionar la palabra %s? |1) si |2) no |", palabra);
+  int quiere_palabra; printf("\nIngrese su opcion: "); scanf("%d", &quiere_palabra);
+  if(quiere_palabra-1)
+    return "ERROR";
+  return palabra;
+}
+
+
 int menu(const char *nombre_lemario, const char *nombre_historial){
   char *palabra;
   int opcion;
-  printf("Seleccione:\n1) Elegir una palabra\n2) Mostrar historial\n3) Salir\n\n");
-  printf("Ingrese una opcion: "); scanf("%d", &opcion);
-  switch (opcion) {
+  Partida* partidas;
+  partidas = malloc(sizeof(Partida) * CANT_MAX_PARTIDAS);
+
+  for(int cant_partidas=1, cant_ganadas=0;opcion!=3;){
+    printf("Seleccione:\n1) Elegir una palabra\n2) Mostrar historial\n3) Salir\n\n");
+    printf("Ingrese una opcion: "); scanf("%d", &opcion);
+    switch (opcion) {
   
-    case 1: // Elegir una palabra
-      palabra = elegir_palabra( cinco_palabras(nombre_lemario) );
-        if ( strcmp(palabra,"ERROR") ){
+      case 1: // Elegir una palabra
+
+        palabra = elegir_palabra( cinco_palabras(nombre_lemario) );
+        if(palabra!="ERROR")
+          palabra = estar_seguro(palabra);
+
+        if ( palabra!="ERROR" ) {
           int largo_palabra = strlen(palabra);
           char *palabra_oculta = malloc(sizeof(char) * (largo_palabra + 1));
           ocultar_palabra(palabra_oculta, largo_palabra);
-          jugar_ahorcado(palabra, palabra_oculta);
+
+          partidas->palabra_secreta = malloc(sizeof(char) * (largo_palabra + 1));
+          partidas->palabra_secreta = palabra;
+
+          if(jugar_ahorcado(palabra, palabra_oculta)){
+            cant_ganadas++;
+            strcpy(partidas->ganada,"si");
+          } else 
+            strcpy(partidas->ganada,"no");
+          
+          partidas->n_partida=cant_partidas;
+          printf("\n\n\n part %d  y  g%d\n\n\n", cant_partidas, cant_ganadas);
+          partidas->porcentaje_ganadas = (float)cant_ganadas/cant_partidas*100;
+          cant_partidas++;
+          partidas++;
+            
         }
-        menu(nombre_lemario, nombre_historial);
-  break;
 
-  case 2: // Mostrar el historial 
-    mostrar_historial(nombre_historial); /////////////////////////////////////////
-    menu(nombre_lemario, nombre_historial);
-  break;
+      break;
 
-  case 3: // Finalizar y guardar en el historial
-    // guardar_historial(nombre_historial);
-    return 0; // Si retorna 0 el main finaliza
-  break;
+      case 2: // Mostrar el historial 
+        mostrar_historial(partidas-cant_partidas+1, cant_partidas); /////////////////////////////////////////
+      break;
 
-  default: // Volver al menu
-    // system(limpiar);
-    printf("No ingreso una opcion valida, ingrese una:\n\n");
-    menu(nombre_lemario, nombre_historial);
+      case 3: // Finalizar y guardar en el historial
+        guardar_historial(nombre_historial, partidas-cant_partidas+1, cant_partidas); // aclarar readme el +1
+      
+      break;
+
+      default: // Volver al menu
+        // system(limpiar);
+        printf("No ingreso una opcion valida, ingrese una:\n\n");
+    }
   }
+  return 0; // Si retorna 0 el main finaliza
 }
