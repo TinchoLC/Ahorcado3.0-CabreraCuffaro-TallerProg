@@ -22,7 +22,7 @@ char** cinco_palabras(const char *nombre_archivo){
   int indice_palabra_aleatoria, largo_palabra_aleatoria, i = 0;
   for (; i < 5; i++) {
     indice_palabra_aleatoria = generar_numero_aleatorio(0, cant_palabras);
-    if ( palabra_repetida(palabras_opcion, i, palabras_totales[indice_palabra_aleatoria]) ) 
+    if (palabra_repetida(palabras_opcion, i, palabras_totales[indice_palabra_aleatoria])) 
       i--; // Como la palabra se repite, hace otra iteracion
     else { // La palabra solamente se guarda si no es repetida
       largo_palabra_aleatoria = strlen(palabras_totales[indice_palabra_aleatoria]);
@@ -50,14 +50,14 @@ char* elegir_palabra(char **opciones){
 char* estar_seguro(char *palabra){
   printf("\nEstas seguro de que quieres seleccionar la palabra %s? |1) si |2) no |", palabra);
   int quiere_palabra; printf("\nIngrese su opcion: "); scanf("%d", &quiere_palabra);
-  if (quiere_palabra-1)
+  if (quiere_palabra - 1)
     return "ERROR";
   return palabra;
 }
 
 char* palabra_final(const char *nombre_lemario){
   char *palabra;
-  palabra = elegir_palabra( cinco_palabras(nombre_lemario) );
+  palabra = elegir_palabra(cinco_palabras(nombre_lemario));
   if (palabra != "ERROR") // comprueba si no se selecciono una palabra, para volver al menu
     palabra = estar_seguro(palabra);
   return palabra;
@@ -78,9 +78,9 @@ void rellenar_campos(Partida *partidas, int ganada_perdida, int *cant_ganadas, i
 
   if (ganada_perdida){
     (*cant_ganadas)++;
-    strcpy(partidas->ganada,"Si");
+    strcpy(partidas->ganada, "Si");
   } else 
-    strcpy(partidas->ganada,"No"); 
+    strcpy(partidas->ganada, "No"); 
 
   partidas->n_partida = cant_partidas;
 
@@ -91,7 +91,7 @@ void menu(const char *nombre_lemario, const char *nombre_historial){
   int opcion;
   Partida* partidas;
   partidas = malloc(sizeof(Partida) * CANT_MAX_PARTIDAS);
-  for (int cant_partidas = 1, cant_ganadas = 0; opcion != 3;){
+  for (int cant_partidas = 1, cant_ganadas = 0; opcion != 3; ) {
     printf("Seleccione:\n1) Elegir una palabra\n2) Mostrar historial\n3) Salir\n\n");
     printf("Ingrese una opcion: "); scanf("%d", &opcion);
 
@@ -101,7 +101,7 @@ void menu(const char *nombre_lemario, const char *nombre_historial){
       { char *palabra;
         palabra = palabra_final(nombre_lemario);
         if (palabra != "ERROR") { // vuelve al menu
-          int ganada_perdida=jugar_partida(palabra);
+          int ganada_perdida = jugar_partida(palabra);
 
           rellenar_campos(partidas, ganada_perdida, &cant_ganadas, cant_partidas, palabra);
 
