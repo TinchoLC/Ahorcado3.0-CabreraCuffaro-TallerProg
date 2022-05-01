@@ -37,68 +37,79 @@ char pedir_letra(char letras_jugadas[]){
 void dibujo_ahorcado(int vidas){
   switch(vidas){
     case 7:
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
-        break;
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    break;
+      
     case 6:
-        printf("%c%c%c%c%c%c\n",218,196,196,196,196,196);
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
-        break;
+      printf("%c%c%c%c%c%c\n",218,196,196,196,196,196);
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    break;
+      
     case 5:
-        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
-        printf("%c    %c\n",179,179);
-        printf("%c    \n",179);
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
-        break;
+      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("%c    %c\n",179,179);
+      printf("%c    \n",179);
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    break;
+      
     case 4:
-        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
-        printf("%c    %c\n",179,179);
-        printf("%c    O\n",179);
-        printf("%c\n",179);
-        printf("%c\n",179);
-        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
-        break;
+      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("%c    %c\n",179,179);
+      printf("%c    O\n",179);
+      printf("%c\n",179);
+      printf("%c\n",179);
+      printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    break;
+    
     case 3:
-        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
-        printf("%c    %c\n",179,179);
-        printf("%c    O\n",179);
-        printf("%c   /%c\n",179,179);
-        printf("%c\n",179);
-        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
-        break;
+      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("%c    %c\n",179,179);
+      printf("%c    O\n",179);
+      printf("%c   /%c\n",179,179);
+      printf("%c\n",179);
+      printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    break;
+    
     case 2:
-        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
-        printf("%c    %c\n",179,179);
-        printf("%c    O\n",179);
-        printf("%c   /%c%c\n",179,179,92);
-        printf("%c\n",179);
-        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
-        break;
+      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("%c    %c\n",179,179);
+      printf("%c    O\n",179);
+      printf("%c   /%c%c\n",179,179,92);
+      printf("%c\n",179);
+      printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    break;
+    
     case 1:
-        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
-        printf("%c    %c\n",179,179);
-        printf("%c    O\n", 179);
-        printf("%c   /%c%c\n",179,179,92);
-        printf("%c   /\n",179);
-        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
-        break;
+      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("%c    %c\n",179,179);
+      printf("%c    O\n", 179);
+      printf("%c   /%c%c\n",179,179,92);
+      printf("%c   /\n",179);
+      printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    break;
+    
     case 0:
-        printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
-        printf("%c    %c\n",179,179);
-        printf("%c    O\n", 179);
-        printf("%c   /%c%c\n",179,179,92);
-        printf("%c   / %c\n",179,92);
-        printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("%c    %c\n",179,179);
+      printf("%c    O\n", 179);
+      printf("%c   /%c%c\n",179,179,92);
+      printf("%c   / %c\n",179,92);
+      printf("%c%c%c%c%c%c%c%c%c\n",193,196,196,196,196,196,196,196,196);
+    break;
+      
+    default:
+      printf("Dibujo no disponible\n");
     }
 }
 
