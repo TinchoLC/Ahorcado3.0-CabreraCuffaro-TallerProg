@@ -11,7 +11,6 @@ int palabra_repetida(char **palabras, int contador, char *palabra){ // No funcio
     c= !strcmp(palabras[h], palabra);
   return c;
 }
-}
 
 char** cinco_palabras(const char *nombre_archivo){
   char **palabras_totales = malloc(sizeof(char*) * CANT_MAX_PALABRAS);
