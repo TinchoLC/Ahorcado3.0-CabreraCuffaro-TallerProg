@@ -77,7 +77,7 @@ void rellenar_campos(Partida *partidas, int ganada_perdida, int *cant_ganadas, i
  * Si es 1 llama a se da la opcion de seleccionar una palabra para jugar 
  * una partida con palabra_final, se juega la partida con jugar_partida
  * y se rellenan los campos de una estructura con rellenar_campos.
-* Luego se vuelve a ingresar un numero.
+ * Luego se vuelve a ingresar un numero.
  *
  * Si es 2 llama a mostrar_historial (de manejo_archivo.h) con los argumentos necesarios. 
  * Luego se vuelve a ingresar un numero.
