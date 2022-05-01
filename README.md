@@ -6,7 +6,7 @@ gcc main.c manejo_archivo.c menu.c ahorcado.c
 
 ## Explicación de decisiones durante del programa
 
-- Copiamos ahorcado.c para ahorrarnos tiempo y poder centrarnos en otras caracteristicas de nuestro programa como lo son el manejo del historial o el menú. Sin embargo, cambiamos la función de jugar_ahorcado de una void a int ya que de esta manera nos es más sencillo luego poder contabilizar la cantidad de partidas ganadas o perdidas (al devolver esta función un 1 si gana o un 0 si pierde).
+- Utilizamos ahorcado.c del programa Ahorcado 2.0 para ahorrarnos tiempo y poder centrarnos en otras caracteristicas de nuestro programa como lo son el manejo del historial o el menú. Sin embargo, cambiamos la función de jugar_ahorcado de una void a int ya que de esta manera nos es más sencillo luego poder contabilizar la cantidad de partidas ganadas o perdidas (al devolver esta función un 1 si gana o un 0 si pierde).
 
 - Por qué hacemos -cant+1 en menu (guardar y mostrar historial)
 
