@@ -6,9 +6,11 @@ int generar_numero_aleatorio(int min, int max){
 }
 
 int palabra_repetida(char **palabras, int contador, char *palabra){ // No funciona, maybe
-  int h = 0;
-  for(; h < contador && palabras[h] != palabra; h++ );
-  return !(palabras[h] != palabra);
+  int h = 0, c = 0;
+  for(; h < contador && !c; h++)
+    c= !strcmp(palabras[h], palabra);
+  return c;
+}
 }
 
 char** cinco_palabras(const char *nombre_archivo){
