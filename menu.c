@@ -114,6 +114,7 @@ void menu(const char *nombre_lemario, const char *nombre_historial){
 
       case 3: // Finalizar y guardar en el historial
         guardar_historial(nombre_historial, partidas-cant_partidas, cant_partidas);
+        for(int i = 0; i < cant_partidas; free((partidas+i)->palabra_secreta), i++);
         free(partidas);
       break;
 
