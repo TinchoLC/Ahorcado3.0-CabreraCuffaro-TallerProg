@@ -87,4 +87,3 @@ void rellenar_campos(Partida *partidas, int ganada_perdida, int *cant_ganadas, i
  */
 void menu(const char *nombre_lemario, const char *nombre_historial);
 #endif
-
