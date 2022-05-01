@@ -51,7 +51,7 @@ int rellenar_palabra(char letra, char tablero[], char palabra_secreta[]) {
 void dibujo_ahorcado(int vidas){
   switch(vidas){
     case 7:
-      printf("%c\n",179);
+      printf("\n%c\n",179);
       printf("%c\n",179);
       printf("%c\n",179);
       printf("%c\n",179);
@@ -60,7 +60,7 @@ void dibujo_ahorcado(int vidas){
     break;
       
     case 6:
-      printf("%c%c%c%c%c%c\n",218,196,196,196,196,196);
+      printf("\n%c%c%c%c%c%c\n",218,196,196,196,196,196);
       printf("%c\n",179);
       printf("%c\n",179);
       printf("%c\n",179);
@@ -69,7 +69,7 @@ void dibujo_ahorcado(int vidas){
     break;
       
     case 5:
-      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("\n%c%c%c%c%c%c\n",218,196,196,196,196,191);
       printf("%c    %c\n",179,179);
       printf("%c    \n",179);
       printf("%c\n",179);
@@ -78,7 +78,7 @@ void dibujo_ahorcado(int vidas){
     break;
       
     case 4:
-      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("\n%c%c%c%c%c%c\n",218,196,196,196,196,191);
       printf("%c    %c\n",179,179);
       printf("%c    O\n",179);
       printf("%c\n",179);
@@ -87,7 +87,7 @@ void dibujo_ahorcado(int vidas){
     break;
     
     case 3:
-      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("\n%c%c%c%c%c%c\n",218,196,196,196,196,191);
       printf("%c    %c\n",179,179);
       printf("%c    O\n",179);
       printf("%c   /%c\n",179,179);
@@ -96,7 +96,7 @@ void dibujo_ahorcado(int vidas){
     break;
     
     case 2:
-      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("\n%c%c%c%c%c%c\n",218,196,196,196,196,191);
       printf("%c    %c\n",179,179);
       printf("%c    O\n",179);
       printf("%c   /%c%c\n",179,179,92);
@@ -105,7 +105,7 @@ void dibujo_ahorcado(int vidas){
     break;
     
     case 1:
-      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("\n%c%c%c%c%c%c\n",218,196,196,196,196,191);
       printf("%c    %c\n",179,179);
       printf("%c    O\n", 179);
       printf("%c   /%c%c\n",179,179,92);
@@ -114,7 +114,7 @@ void dibujo_ahorcado(int vidas){
     break;
     
     case 0:
-      printf("%c%c%c%c%c%c\n",218,196,196,196,196,191);
+      printf("\n%c%c%c%c%c%c\n",218,196,196,196,196,191);
       printf("%c    %c\n",179,179);
       printf("%c    O\n", 179);
       printf("%c   /%c%c\n",179,179,92);
@@ -123,7 +123,7 @@ void dibujo_ahorcado(int vidas){
     break;
       
     default:
-      printf("Dibujo no disponible\n");
+      printf("\nDibujo no disponible\n");
     }
 }
 
