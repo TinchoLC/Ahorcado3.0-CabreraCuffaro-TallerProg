@@ -36,7 +36,7 @@ void guardar_historial(const char *historial, Partida* ult_part, int cant_partid
   FILE* hist = abrir_archivo(historial, "w+");
   fprintf(hist, "+-------------------+-------------------------+--------+--------------------+\n");
   fprintf(hist, "| Numero de partida |     Palabra Secreta     | Ganada | Porcentaje Ganadas |\n");
-  for(int i = 1; i < cant_partidas; i++, ult_part++){
+  for(int i = 0; i < cant_partidas; i++, ult_part++){
     fprintf(hist, "+-------------------+-------------------------+--------+--------------------+\n");
     fprintf(hist, "| %-17d | %-23s |   %s   | %.2f%%  \t    |\n", ult_part->n_partida, ult_part->palabra_secreta, ult_part->ganada, ult_part->porcentaje_ganadas);
   }
@@ -47,7 +47,7 @@ void guardar_historial(const char *historial, Partida* ult_part, int cant_partid
 void mostrar_historial(Partida* ult_part, int cant_partidas){
   printf("+-------------------+-------------------------+--------+--------------------+\n");
   printf("| Numero de partida |     Palabra Secreta     | Ganada | Porcentaje Ganadas |\n");
-  for(int i = 1; i < cant_partidas; i++, ult_part++){ // aclarar por que empieza ne 1
+  for(int i = 0; i < cant_partidas; i++, ult_part++){ // aclarar por que empieza ne 1
     printf("+-------------------+-------------------------+--------+--------------------+\n");
     printf("| %-17d | %-23s |   %s   | %.2f%%  \t    |\n", ult_part->n_partida, ult_part->palabra_secreta, ult_part->ganada, ult_part->porcentaje_ganadas);
   }

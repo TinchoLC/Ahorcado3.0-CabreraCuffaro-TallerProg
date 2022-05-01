@@ -76,22 +76,22 @@ void rellenar_campos(Partida *partidas, int ganada_perdida, int *cant_ganadas, i
   partidas->palabra_secreta = malloc(sizeof(char) * (strlen(palabra) + 1));
   partidas->palabra_secreta = palabra;
 
-  if (ganada_perdida){
+  if (ganada_perdida) {
     (*cant_ganadas)++;
     strcpy(partidas->ganada, "Si");
   } else 
     strcpy(partidas->ganada, "No"); 
 
-  partidas->n_partida = cant_partidas;
+  partidas->n_partida = cant_partidas+1;
 
-  partidas->porcentaje_ganadas = (float)*cant_ganadas/cant_partidas*100;
+  partidas->porcentaje_ganadas = (float)*cant_ganadas/(cant_partidas+1)*100;
 }
 
 void menu(const char *nombre_lemario, const char *nombre_historial){
   int opcion;
   Partida* partidas;
   partidas = malloc(sizeof(Partida) * CANT_MAX_PARTIDAS);
-  for (int cant_partidas = 1, cant_ganadas = 0; opcion != 3; ) {
+  for (int cant_partidas = 0, cant_ganadas = 0; opcion != 3; ) {
     printf("Seleccione:\n1) Elegir una palabra\n2) Mostrar historial\n3) Salir\n\n");
     printf("Ingrese una opcion: "); scanf("%d", &opcion);
 
@@ -102,20 +102,18 @@ void menu(const char *nombre_lemario, const char *nombre_historial){
         palabra = palabra_final(nombre_lemario);
         if (palabra != "ERROR") { // vuelve al menu
           int ganada_perdida = jugar_partida(palabra);
-
           rellenar_campos(partidas, ganada_perdida, &cant_ganadas, cant_partidas, palabra);
-
           cant_partidas++, partidas++;
         }
       }
       break;
 
       case 2: // Mostrar el historial 
-        mostrar_historial(partidas-cant_partidas+1, cant_partidas);
+        mostrar_historial(partidas-cant_partidas, cant_partidas);
       break;
 
       case 3: // Finalizar y guardar en el historial
-        guardar_historial(nombre_historial, partidas-cant_partidas+1, cant_partidas); // aclarar readme el +1
+        guardar_historial(nombre_historial, partidas-cant_partidas, cant_partidas); // aclarar readme el +1
         free(partidas);
       break;
 
