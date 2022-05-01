@@ -50,6 +50,12 @@ char pedir_letra(char letras_jugadas[]);
    */
 int rellenar_palabra(char letra, char tablero[], char palabra_secreta[]);
 
+/*
+ * dibujo_ahorcado toma una cantidad de vidas e imprime en la consola 
+ * el dibujo correspondiente a las vidas
+ */
+void dibujo_ahorcado(int vidas);
+
   /*
    * Se encarga de mostrar el tablero actual, el conjunto de letras
    * jugadas y la cantidad actual de vidas con un formato limpio
@@ -62,11 +68,5 @@ void mostrar_tablero(char tablero[], char letras_jugadas[], int vidas);
    * Retonar 1 si ganas y 0 si perdes.
    */
 int jugar_ahorcado(char *palabra_secreta, char *tablero);
-
-/*
- * dibujo_ahorcado toma una cantidad de vidas e imprime en la consola 
- * el dibujo correspondiente a las vidas
- */
-void dibujo_ahorcado(int vidas);
 
 #endif
