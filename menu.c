@@ -7,7 +7,7 @@ int generar_numero_aleatorio(int min, int max){
 
 int palabra_repetida(char **palabras, int contador, char *palabra){
   int h = 0, c = 0;
-  for(; h < contador && !c; c= !strcmp(palabras[h], palabra), h++);
+  for(; h < contador && !c; c = !strcmp(palabras[h], palabra), h++);
   return c;
 }
 
