@@ -92,7 +92,7 @@ void menu(const char *nombre_lemario, const char *nombre_historial){
   Partida* partidas;
   partidas = malloc(sizeof(Partida) * CANT_MAX_PARTIDAS);
   for (int cant_partidas = 0, cant_ganadas = 0; opcion != 3; ) {
-    printf("Seleccione:\n1) Elegir una palabra\n2) Mostrar historial\n3) Salir\n\n");
+    printf("\nSeleccione:\n1) Elegir una palabra\n2) Mostrar historial\n3) Salir\n\n");
     printf("Ingrese una opcion: "); scanf("%d", &opcion);
 
     switch (opcion) {
