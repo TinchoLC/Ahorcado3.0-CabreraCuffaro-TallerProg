@@ -45,7 +45,7 @@ void guardar_historial(const char *historial, Partida* ult_part, int cant_partid
 }
 
 void mostrar_historial(Partida* ult_part, int cant_partidas){
-  printf("+-------------------+-------------------------+--------+--------------------+\n");
+  printf("\n+-------------------+-------------------------+--------+--------------------+\n");
   printf("| Numero de partida |     Palabra Secreta     | Ganada | Porcentaje Ganadas |\n");
   for(int i = 0; i < cant_partidas; i++, ult_part++){ // aclarar por que empieza ne 1
     printf("+-------------------+-------------------------+--------+--------------------+\n");
