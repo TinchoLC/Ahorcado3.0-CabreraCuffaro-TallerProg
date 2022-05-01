@@ -8,8 +8,6 @@ gcc main.c manejo_archivo.c menu.c ahorcado.c
 
 - Utilizamos ahorcado.c del programa Ahorcado 2.0 para ahorrarnos tiempo y poder centrarnos en otras caracteristicas de nuestro programa como lo son el manejo del historial o el menú. Sin embargo, cambiamos la función de jugar_ahorcado de una void a int ya que de esta manera nos es más sencillo luego poder contabilizar la cantidad de partidas ganadas o perdidas (al devolver esta función un 1 si gana o un 0 si pierde).
 
-- Por qué hacemos -cant+1 en menu (guardar y mostrar historial)
+- Dentro de menu.c al llamar la funcion de guardar y mostrar historial pasamos como argumento partidas-cant_partidas ya que previamente dentro del for incrementamos la dirección del puntero a la estructura partidas unas cant_partidas veces. Por lo tanto cuando restamos al puntero la cantidad de partidas, lo que hacemos es devolver al puntero a su posición original sin ningún incremento.
 
-- Por qué los for de mostrar y guardar historial empiezan en 1
-
-- Creamos el termino "ERROR" ya que nos pareció una manera simple de cortar el flujo del programa y volver al menú al verificar si las variables contenian dicho valor. En otras palabras, "ERROR" hace alusión a que (como lo indica el nombre) ocurrio un error durante la selección de palabras ya sea durante la elección de una de las cinco palabras o durante la confirmación de esta. (capaz crear constante ERROR)
+- Creamos el termino "ERROR" ya que nos pareció una manera simple de cortar el flujo del programa y volver al menú al verificar si las variables contenian dicho valor. En otras palabras, "ERROR" hace alusión a que (como lo indica el nombre) ocurrio un error durante la selección de palabras ya sea durante la elección de una de las cinco palabras o durante la confirmación de esta.
