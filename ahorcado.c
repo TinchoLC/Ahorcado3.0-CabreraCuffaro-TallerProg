@@ -34,6 +34,20 @@ char pedir_letra(char letras_jugadas[]){
   return letra;
 }
 
+int rellenar_palabra(char letra, char tablero[], char palabra_secreta[]) {
+  int encontrada = 0;
+
+  int largo_palabra = strlen(palabra_secreta);
+  for (int i = 0; i < largo_palabra; i++) {
+    if (palabra_secreta[i] == letra) {
+      tablero[i] = letra;
+      encontrada = 1;
+    }
+  }
+
+  return encontrada;
+}
+
 void dibujo_ahorcado(int vidas){
   switch(vidas){
     case 7:
@@ -111,20 +125,6 @@ void dibujo_ahorcado(int vidas){
     default:
       printf("Dibujo no disponible\n");
     }
-}
-
-int rellenar_palabra(char letra, char tablero[], char palabra_secreta[]) {
-  int encontrada = 0;
-
-  int largo_palabra = strlen(palabra_secreta);
-  for (int i = 0; i < largo_palabra; i++) {
-    if (palabra_secreta[i] == letra) {
-      tablero[i] = letra;
-      encontrada = 1;
-    }
-  }
-
-  return encontrada;
 }
 
 void mostrar_tablero(char tablero[], char letras_jugadas[], int vidas) {
