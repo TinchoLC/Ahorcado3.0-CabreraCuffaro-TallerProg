@@ -20,7 +20,7 @@ char** cinco_palabras(const char *nombre_archivo){
   fclose(archivo_objeto);
 
   int indice_palabra_aleatoria, largo_palabra_aleatoria;
-  for (int i=0; i < 5; i++) {
+  for (int i = 0; i < 5; i++) {
     indice_palabra_aleatoria = generar_numero_aleatorio(0, cant_palabras);
     if (i > 0 && palabra_repetida(palabras_opcion, i, palabras_totales[indice_palabra_aleatoria])) 
       i--; // Como la palabra se repite, hace otra iteracion
@@ -57,7 +57,7 @@ char* estar_seguro(char *palabra){
 
 char* palabra_final(const char *nombre_lemario){
   char *palabra;
-  palabra = elegir_palabra(cinco_palabras(nombre_lemario));
+  palabra = elegir_palabra( cinco_palabras( nombre_lemario ) );
   if (palabra != "ERROR") // comprueba si no se selecciono una palabra, para volver al menu
     palabra = estar_seguro(palabra);
   return palabra;
@@ -113,7 +113,7 @@ void menu(const char *nombre_lemario, const char *nombre_historial){
       break;
 
       case 3: // Finalizar y guardar en el historial
-        guardar_historial(nombre_historial, partidas-cant_partidas, cant_partidas); // aclarar readme el +1
+        guardar_historial(nombre_historial, partidas-cant_partidas, cant_partidas);
         free(partidas);
       break;
 
