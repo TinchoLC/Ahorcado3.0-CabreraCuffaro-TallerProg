@@ -20,8 +20,8 @@ char** cinco_palabras(const char *nombre_archivo){
   int cant_palabras = leer_palabras(archivo_objeto, palabras_totales) - 1;
   fclose(archivo_objeto);
 
-  int indice_palabra_aleatoria, largo_palabra_aleatoria, i = 0;
-  for (; i < 5; i++) {
+  int indice_palabra_aleatoria, largo_palabra_aleatoria;
+  for (int i=0; i < 5; i++) {
     indice_palabra_aleatoria = generar_numero_aleatorio(0, cant_palabras);
     if (i > 0 && palabra_repetida(palabras_opcion, i, palabras_totales[indice_palabra_aleatoria])) 
       i--; // Como la palabra se repite, hace otra iteracion
