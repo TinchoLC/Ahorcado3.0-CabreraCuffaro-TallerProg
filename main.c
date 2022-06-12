@@ -1,8 +1,8 @@
 #include "main.h"
 
 int main(int argc, char const *argv[]) {
-  if (argc != 2) {
-    printf("Uso del ejecutable: %s <archivo_csv>\n", argv[0]);
+  if (argc != 3) {
+    printf("Uso del ejecutable: %s <lemario> <historial>\n", argv[0]);
     return 1;
   }
   srand(time(NULL));

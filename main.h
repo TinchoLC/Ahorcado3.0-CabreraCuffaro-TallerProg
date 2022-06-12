@@ -1,7 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "archivos.h"
-#include "filtros.h"
+#include "manejo_archivo.h"
+#include "ahorcado.h"
+#include "menu.h"
 
 #endif
